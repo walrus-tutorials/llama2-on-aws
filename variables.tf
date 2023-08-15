@@ -1,8 +1,13 @@
-# @options ["t3.xlarge","t3.2xlarge"]
+# @options ["c5.2xlarge","c5.4xlarge"]
 variable "instance_type" {
   type = string
   description = "Instance type"
-  default = "t3.2xlarge"
+  default = "c5.2xlarge"
+}
+
+variable "ami_id" {
+  description = "The ID of the AMI used to launch the EC2 instance"
+  default     = "ami-0b0b8676da9af9947"
 }
 
 variable "disk_size" {
@@ -11,6 +16,11 @@ variable "disk_size" {
   default = 80
 }
 
+variable "disk_iops" {
+  type = number
+  description = "IOPS of the root disk"
+  default = 40000
+}
 
 variable "vpc_name" {
   type = string
@@ -34,3 +44,4 @@ variable "key_name" {
   description = "Key pair name"
   default = ""
 }
+
